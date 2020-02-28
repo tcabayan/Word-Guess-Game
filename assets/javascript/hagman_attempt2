@@ -1,0 +1,116 @@
+//Global Variables//
+//_____________________________________________________________________________________
+//Create an array of words
+var word = ['madonna', 'aerosmith', 'eurythmics', 'wham', 'queen', 'blondie', 'clash']
+
+//Choose words randomly
+var randWord = "";
+var chosenLetter = []; 
+var underScore = 0;
+
+
+//User Guesses
+var wrongLetter = [];
+var rightLetter = [];
+
+
+//Counter Variables
+var wins = 0;
+var losses = 0;
+var lives = 12;
+
+//Main//
+//______________________________________________________________________________________
+//Game Start Function
+function Game() {
+    //Step One: Computer randomly generates word from word array
+    randWord = word[Math.floor(Math.random() * word.length)];
+
+    //Step Two: Split individual word into separate array and store new array
+    chosenLetter = randWord.split(""); 
+
+    //Step Three: Store length of words by underscores
+    underScore = chosenLetter.length;
+
+    //Step Four: Create underscores based on Length of Word
+        for (var i=0; i<underScore; i++) {
+            rightLetter.push('_');
+        }   
+
+    //to show the "_" within HTML
+    document.getElementsByClassName("underscore").innerHTML = "  " + rightLetter.join("  ");
+
+    //Testing
+    console.log(randWord)
+    console.log(chosenLetter)
+    console.log(underScore)
+    console.log(rightLetter)
+}
+
+
+//Reset Function
+function reset() {
+    lives = 12;
+    wrongLetter = [];
+    rightLetter = [];
+    Game ();
+}
+
+//Get users guess and check letters
+function checkLetters(letter) {
+    var chosenLetter = false;
+    for (var i = 0; i < underScore; i++) {
+        if (randWord[i] == letter) {
+            chosenLetter = true;
+        }
+    }
+    if (chosenLetter) {
+        for (var i = 0; i < underScore; i++) {
+            if (randWord[i] == letter) {
+                rightLetter[i] = letter;
+            }
+        }
+    }
+    else {
+        wrongLetter.push(letter);
+        lives--;
+    }
+    console.log(rightLetter);
+}
+
+//check to see if player won...
+function complete() {
+    console.log("wins:" + wins + " || losses:" + losses + " || guesses left:" + lives)
+
+    //if WON...then alert and reset new round
+    if (chosenLetter.toString() == rightLetter.toString()) {
+        wins++;
+        reset()
+        //display wins on screen
+        document.getElementsByClassName("winstracker").innerHTML = " " + wins;
+
+        //if LOST...then alert and reset new round
+    } else if (lives === 0) {
+        losses++;
+        reset()
+    }
+    
+    //display guesses remaining countdown
+    document.getElementsByClassName("lives").innerHTML = " " + lives;
+}
+
+//Execution of Code
+
+//check for keyup, and convert to lowercase then store in guesses
+document.onkeyup = function (event) {
+    var guesses = String.fromCharCode(event.keyCode).toLowerCase();
+    //check to see if guess entered matches value of random word
+    checkLetters(guesses);
+    //process wins/loss 
+    complete();
+    //store player guess in console for reference 
+    console.log(guesses);
+
+    //display/store incorrect letters on screen
+    document.getElementsByClassName("wrongLetter").innerHTML = "  " + wrongGuess.join(" ");
+}

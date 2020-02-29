@@ -14,7 +14,7 @@ var guessesLeft = 12;
 // DOM manipulation
 var docUnderScore = document.getElementById("theWord");
 var docGuessedLetter = document.getElementById("guessedLetters");
-var docLives = document.getElementById("lives");
+var docguessesLeft = document.getElementById("guessesLeft");
 var docWins = document.getElementById("wins");
 
 //Main//
@@ -36,7 +36,7 @@ var docWins = document.getElementById("wins");
     
 //Change HTML elements to display current information
 docUnderScore.textContent = underScore.join(" ");
-docLives.textContent = "Number of Guesses Remaining: " + " " + guessesLeft;
+docguessesLeft.textContent = "Number of Guesses Remaining: " + " " + guessesLeft;
 docWins.textContent = "Wins: " + " " + wins;
 
 

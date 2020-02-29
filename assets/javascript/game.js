@@ -1,7 +1,7 @@
 //Global Variables//
 //_____________________________________________________________________________________
 //Create an array of words
-var word = ['madonna', 'aerosmith', 'wham', 'queen', 'blondie', 'clash'];
+var word = ['madonna', 'aerosmith', 'wham', 'queen', 'blondie', 'clash', 'eurythmics'];
 var underScore = [];
 var wrongLetter = [];
 var randWord;
@@ -22,6 +22,8 @@ var docWins = document.getElementById("wins");
 //Main//
 //______________________________________________________________________________________
 function newGame() {
+//clear words under current letter
+    underScore = [];
 //Computer selects word from array
     randWord = word[Math.floor(Math.random() * word.length)];
     console.log(randWord)

@@ -12,6 +12,9 @@
     <!-- CSS File -->
     <link rel="stylesheet" type = "text/css" href="assets/css/style.css">
 
+    <!-- Linking Google Web Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+
 </head>
 <body>
 <!--Beginning of Header Container-->
@@ -49,7 +52,7 @@
     <div class="col-sm-7">
 <!--Wins Container-->
         <h3>WINS
-            <div id="winstracker"></div>
+            <div id="wins"></div>
         </h3>        
     </div>
 </div>
@@ -60,7 +63,7 @@
 <!--Current Word Container-->
                 <div class="col-sm-7">
                     <h3>CURRENT WORD</h3>
-                    <div class="underscore"></div>
+                    <div id="theWord"></div>
                 </div>
             </div> 
 <!--End of Third Row-->
@@ -84,10 +87,7 @@
                         <br>
                         <br>
                         <br>
-                        <div class= "rightLetter">RIGHT GUESSES</div>
-                        <br>
-                        <br>
-                        <div class= "wrongLetter">WRONG GUESSES</div>
+                        <div id= "guessedLetters">GUESSED LETTERS</div>
                     </h3>
                 </div>
             </div> 

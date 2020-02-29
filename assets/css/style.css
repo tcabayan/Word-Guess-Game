@@ -36,9 +36,10 @@ h2{
     margin: 10px;
 }
 
-.underscore {
+#theWord {
     margin-top: 25px;
     font-size: 2em;
+    letter-spacing: .15em;
 }
 
 

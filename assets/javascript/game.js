@@ -1,7 +1,7 @@
 //Global Variables//
 //_____________________________________________________________________________________
 //Create an array of words
-var word = ['madonna', 'aerosmith', 'eurythmics', 'wham', 'queen', 'blondie', 'clash'];
+var word = ['madonna', 'aerosmith', 'wham', 'queen', 'blondie', 'clash'];
 var underScore = [];
 var wrongLetter = [];
 var randWord;
